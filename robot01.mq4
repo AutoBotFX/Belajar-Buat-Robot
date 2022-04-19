@@ -13,7 +13,7 @@ input    double      inLotSize   = 0.01;     //Lot Size
 input    int         inMAFastPeriod = 10;       //MA Fast Period
 input    int         inMASlowPeriod = 30;       //MA Slow Period
 input    ENUM_MA_METHOD inMAMethod  = MODE_SMA; //MA Method
-input    ENUM_APPLIED_PRICE inMAPrice  = MODE_CLOSE;  //MA Applied to
+input    ENUM_APPLIED_PRICE inMAPrice  = PRICE_CLOSE;  //MA Applied to
 
 double gMinLot, gMaxLot, gLotStep;
 
@@ -23,10 +23,12 @@ double gMinLot, gMaxLot, gLotStep;
 int OnInit()
   {
 //---
-
+   
    gMinLot  = MarketInfo(Symbol(), MODE_MINLOT);
    gMaxLot  = MarketInfo(Symbol(), MODE_MAXLOT);
    gLotStep = MarketInfo(Symbol(), MODE_LOTSTEP);
+   
+   
    
 //---
    return(INIT_SUCCEEDED);
@@ -98,7 +100,7 @@ void openOrder(int orderType){
 
    if (orderType >= 0){
    
-      double hargaOpen;
+      double hargaOpen = 0.0;
       double lotSize = 0.0;
       lotSize  = getLotSize();
       color warna = clrNONE;
@@ -136,3 +138,4 @@ double getLotSize(){
    return(lotSize);
 
 }
+
