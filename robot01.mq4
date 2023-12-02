@@ -38,7 +38,7 @@ double   gPoint;
 //+------------------------------------------------------------------+
 int OnInit()
   {
-//---
+//-----------
    gPair = Symbol();
    gDigit   = (int) MarketInfo(gPair, MODE_DIGITS);
    gPoint   = MarketInfo(gPair, MODE_POINT);
